@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#090b18">
+  <meta name="description" content="A neon-dark block puzzle. Place shapes, clear lines, and chase your best score.">
+  <title>Neon Blocks — Puzzle</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div>
+          <p class="eyebrow">PUZZLE ARCADE</p>
+          <h1>NEON <span>BLOCKS</span></h1>
+        </div>
+      </div>
+      <button class="icon-button" id="soundBtn" aria-label="Toggle sound" title="Toggle sound">
+        <svg id="soundIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11"/></svg>
+      </button>
+    </header>
+
+    <section class="score-row" aria-label="Scores">
+      <div class="score-card current-score">
+        <span class="score-label">SCORE</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="score-card best-score">
+        <span class="score-label">BEST</span>
+        <strong id="best">0</strong>
+      </div>
+      <div class="score-card combo-score">
+        <span class="score-label">STREAK</span>
+        <strong id="streak">×1</strong>
+      </div>
+    </section>
+
+    <section class="game-area">
+      <div class="board-heading">
+        <div><span class="live-dot"></span><span>THE GRID</span></div>
+        <span id="statusText">Place your blocks</span>
+      </div>
+      <div class="board-frame">
+        <div id="board" class="board" role="grid" aria-label="Puzzle board"></div>
+        <div id="lineFlash" class="line-flash" aria-hidden="true"></div>
+      </div>
+      <div class="hint-row">
+        <span class="hint-icon">✦</span>
+        <p>Fill a row or column to <b>clear it</b>. Keep space for your next shapes.</p>
+      </div>
+    </section>
+
+    <section class="tray-section">
+      <div class="tray-heading">
+        <h2>YOUR BLOCKS</h2>
+        <span>DRAG OR TAP</span>
+      </div>
+      <div id="tray" class="tray" aria-label="Available blocks"></div>
+    </section>
+
+    <footer class="bottom-actions">
+      <button id="newGameBtn" class="secondary-button"><span aria-hidden="true">↻</span> New game</button>
+      <button id="howBtn" class="secondary-button"><span aria-hidden="true">?</span> How to play</button>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="gameOverModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="gameOverTitle">
+    <div class="modal-card">
+      <div class="modal-orb">✦</div>
+      <p class="eyebrow">RUN COMPLETE</p>
+      <h2 id="gameOverTitle">Grid locked!</h2>
+      <p class="modal-copy">No more blocks fit. Every run is a new high-score chance.</p>
+      <div class="final-score"><span>FINAL SCORE</span><strong id="finalScore">0</strong></div>
+      <button id="playAgainBtn" class="primary-button">Play again <span>↗</span></button>
+    </div>
+  </div>
+
+  <div id="howModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="howTitle">
+    <div class="modal-card how-card">
+      <button id="closeHowBtn" class="modal-close" aria-label="Close instructions">×</button>
+      <p class="eyebrow">QUICK GUIDE</p>
+      <h2 id="howTitle">Make room. Make combos.</h2>
+      <ul class="how-list">
+        <li><span>01</span><p><b>Choose a shape</b><br>Tap a block in your tray, then tap a spot on the grid. You can also drag it.</p></li>
+        <li><span>02</span><p><b>Clear lines</b><br>Fill a complete row or column to remove its blocks.</p></li>
+        <li><span>03</span><p><b>Build a streak</b><br>Clear multiple lines together for bonus points and keep your grid open.</p></li>
+      </ul>
+      <button id="gotItBtn" class="primary-button">Got it <span>✓</span></button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

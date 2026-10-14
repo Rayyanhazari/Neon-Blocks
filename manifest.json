@@ -1,0 +1,14 @@
+{
+  "name": "Neon Blocks Puzzle",
+  "short_name": "Neon Blocks",
+  "description": "A neon-dark block puzzle. Place shapes, clear lines, and chase your best score.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090b18",
+  "theme_color": "#090b18",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
